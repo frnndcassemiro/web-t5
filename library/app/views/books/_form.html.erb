@@ -1,0 +1,60 @@
+<%= form_with(model: book) do |form| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+        <% book.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form">
+    <div class="row form-group">
+      <div class="col-6 row ">
+        <div class="col-4"><label><%= form.label :title %>:</label></div>
+        <div class="col-8"><input class="form-control" type="text" <%= form.text_field :title,{ autocomplete: "off" }%> </div>
+      </div>  
+      <div class="col-6"></div>
+    </div>
+    
+    <div class="row form-group">
+      <div class="col-2">
+        <label><%= form.label :published_date, {class:"form-group"} %>:</label>
+      </div>
+      <div class="col-10">
+        <%= form.datetime_select :published_date, {class:"form-group"} %>  
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-6 row ">
+        <div class="col-4"><label><%= form.label :description %>:</label></div>
+        <div class="col-8"><input class="form-control" type="text" <%= form.text_field :description , { autocomplete: "off" }%></div>
+      </div>  
+      <div class="col-6"></div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-6 row ">
+        <div class="col-4"><label><%= form.label :author %>:</label></div>
+        <div class="col-8">
+          <%= form.collection_select :authors_id, Author.all, :id,:name, 
+          {:prompt => '---- Select a Author ----'}, {class:"form-control"} %>
+        </div>
+      </div>  
+      <div class="col-6"></div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-6">
+        <div class="actions">
+          <%= form.submit nil, class:'btn btn-light' %>
+        </div>
+      </div>  
+      <div class="col-6"></div>
+    </div>
+  </div>  
+<% end %>

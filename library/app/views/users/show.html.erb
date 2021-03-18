@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<div class="back">
+  <button type="button" class="btn btn-light btn-link">
+    <%= link_to 'Back', users_path %>
+  </button>
+</div>
+  
+<br><br><br>
+  
+<p class="p-show p-margin" ><strong>User name:&nbsp;</strong><%= @user.name %></p>
+<p class="p-show p-margin" ><strong>User e-mail:&nbsp;</strong><%= @user.email %></p>
+
+<%# show user address %>

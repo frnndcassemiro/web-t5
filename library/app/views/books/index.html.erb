@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<div class="back">
+  <button type="button" class="btn btn-light btn-link">
+    <%= link_to 'Back', root_path %>
+  </button>
+</div>
+<div class="new-book">
+  <button type="button" class="btn btn-light btn-link">
+    <%= link_to 'New Book', new_book_path %>
+  </button>
+</div>
+
+<table class="table">
+  <thead> 
+    <tr>
+    <th scope="col">Book Title</th>
+    <th scope="col">Published Date</th>
+    <th scope="col">Description</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr> 
+        <td><%= book.title %></td>
+        <td><%= book.published_date %></td>
+        <td><%= book.description %></td>
+        <td><button type="button" class="btn btn-light btn-link"><%= link_to 'Show', book %></button></td>
+        <td><button type="button" class="btn btn-light btn-link"><%= link_to 'Edit', edit_book_path(book) %></button></td>
+        <td><button type="button" class="btn btn-light btn-link"><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

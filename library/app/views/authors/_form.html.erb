@@ -1,0 +1,38 @@
+<%= form_with(model: author) do |form| %>
+  <% if author.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(author.errors.count, "error") %> prohibited this author from being saved:</h2>
+
+      <ul>
+        <% author.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row form-group">
+    <div class="col-6 row ">
+      <div class="col-4"><label><%= form.label :name %>:</label></div>
+      <div class="col-8"><input class="form-control" type="text"<%= form.text_field :name,{ autocomplete: "off" } %></div>
+    </div>  
+    <div class="col-6"></div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-6 row ">
+      <div class="col-4"><label><%= form.label :email%>:</label></div>
+      <div class="col-8"><input class="form-control" type="text"<%= form.text_field :email,{ autocomplete: "off" } %></div>
+    </div>  
+    <div class="col-6"></div>
+  </div>
+  
+  <div class="row form-group">
+    <div class="col-6">
+      <div class="actions">
+        <%= form.submit nil, class:'btn btn-light' %>
+      </div>
+    </div>  
+    <div class="col-6"></div>
+  </div>
+<% end %>

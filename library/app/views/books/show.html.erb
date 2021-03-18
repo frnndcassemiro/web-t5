@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<div class="back">
+  <button type="button" class="btn btn-light btn-link">
+    <%= link_to 'Back', books_path %>
+  </button>
+</div>
+
+<br><br><br>
+  
+<p class="p-show p-margin" ><strong>Title:&nbsp;</strong><%= @book.title %></p>
+<p class="p-show p-margin" ><strong>Published date:&nbsp;</strong><%= @book.published_date %></p>
+<p class="p-show p-margin" ><strong>Description:&nbsp;</strong><%= @book.description %></p>

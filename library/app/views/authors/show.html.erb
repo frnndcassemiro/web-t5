@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<div class="back">
+  <button type="button" class="btn btn-light btn-link">
+    <%= link_to 'Back', authors_path %>
+  </button>
+</div>
+
+<br><br><br>
+
+<div>
+  <p class="p-show p-margin" ><strong>Name:&nbsp;</strong><%= @author.name %></p>
+  <p class="p-show p-margin"><strong>Email:&nbsp;</strong><%= @author.email %></p>
+</div>

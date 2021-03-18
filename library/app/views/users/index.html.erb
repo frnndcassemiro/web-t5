@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class="new-book">
+  <button type="button" class="btn btn-light btn-link">
+    <%= link_to 'New User', new_user_path %>
+  </button>
+</div>
+
+<div class="back">
+  <button type="button" class="btn btn-light btn-link">
+    <%= link_to 'Back', root_path %>
+  </button>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+    <th scope="col">Name</th>
+    <th scope="col">E-mail</th>
+    <%# <th scope="col">ZIP Code</th> %>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr> 
+       <td><%= user.name %></td>
+       <td><%= user.email %></td>
+        <%# <td><%= user.zipcode_id %></td> 
+        <td><button type="button" class="btn btn-light btn-link"><%= link_to 'Show', user %></button></td>
+        <td><button type="button" class="btn btn-light btn-link"><%= link_to 'Edit', edit_user_path(user) %></button></td>
+        <td><button type="button" class="btn btn-light btn-link"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,50 @@
+<div class="dropdown menu">
+    <button class="btn btn-light dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Menu
+    </button>
+    <div class="dropdown-menu " aria-labelledby="about-us">
+        <div class="dropdown-item"><button type="button" class="btn btn-light btn-link"><%= link_to 'Manage Authors', authors_path %></button></div>
+        <div class="dropdown-item"><button type="button" class="btn btn-light btn-link"><%= link_to 'Manage Books', books_path %></button></div>
+        <div class="dropdown-item"><button type="button" class="btn btn-light btn-link"><%= link_to 'Manage Loans', loans_path %></button></div>
+        <div class="dropdown-item"><button type="button" class="btn btn-light btn-link"><%= link_to 'Manage Users', users_path %></button></div>
+    </div>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Authors</th>
+        <th scope="col">Description</th>
+        <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @list_books.each do |i| %>
+                <tr> 
+                    <td><%= i['title'] %></td>
+                    <td> 
+                        <% i.authors.each do |a| %>
+                            <%= a['name'] %>
+                        <% end %> 
+                    </td>
+                    <td><%= i['description'] %></td>
+                    <td>
+                         <div class="btn-link">
+                            <% if Loan.where(:book_id => i['id']).exists? %>
+                                <button type="button" class="btn btn-light" disabled="true">
+                                    <%='Borrow Book'%> 
+                                </button>
+                            <% else %> 
+                                <button type="button" class="btn btn-light">
+                                    <%= link_to 'Borrow Book', new_loan_path(book_id:i['id']) %>
+                                </button>
+                            <% end %> 
+                        </div>
+                    </td>
+                </tr>
+        <% end %>
+    </tbody>
+</table>

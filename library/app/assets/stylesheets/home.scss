@@ -1,0 +1,85 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.btn{
+    font-family: 'Roboto', serif;
+}
+
+.btn-opt{
+    margin-bottom: 1em;
+    display: inline-flex;
+    float: right;
+    text-decoration: none;
+}
+
+.btn-opt-right{
+    margin-left: 1em;
+}
+
+.table td{
+    font-family: 'Roboto', serif;
+    font-size: 16px;
+}
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: baseline !important;
+    border-top: 1px solid #dee2e6;
+}
+.search-box {
+    margin-bottom: 1em;
+    display: inline-flex;
+}
+.search-box input {
+    height: 34px;
+    border-radius: 20px;
+    padding-left: 35px;
+    border-color: #ddd;
+    box-shadow: none;
+}
+
+.search-box i {
+    color: #a0a5b1;
+    position: absolute;
+    font-size: 19px;
+    top: 8px;
+    left: 10px;
+}
+
+.p-margin{
+    margin-left: 45px;
+}
+
+.menu{
+    margin-bottom: 1em;
+}
+
+.menu-item{
+    background-color: transparent;
+    text-decoration: none !important;
+    color: #212529;
+}
+
+.menu-item a{
+    background-color: transparent;
+    text-decoration: none !important;
+    color: #212529;
+}
+
+.menu-item a:hover,.menu-item a:visited,.menu-item a:link, .menu-item a:active {
+    background-color: transparent;
+    text-decoration: none !important;
+    color: #212529;
+}
+
+.btn-link a{
+    background-color: transparent;
+    text-decoration: none !important;
+    color: #212529;
+}
+
+.btn-link a:hover,a:visited {
+    background-color: transparent;
+    text-decoration: none !important;
+    color: #212529;
+}

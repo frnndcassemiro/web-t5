@@ -1,0 +1,46 @@
+<%= form_with(model: loan) do |form| %>
+  <% if loan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(loan.errors.count, "error") %> prohibited this loan from being saved:</h2>
+
+      <ul>
+        <% loan.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p class="p-show p-title" >Book informations:&nbsp;</p>
+  <p class="p-show p-margin"><strong>Book title:&nbsp;</strong><%= @book.title %></p>
+  <p class="p-show p-margin"><strong>Published date:&nbsp;</strong><%= @book.published_date %></p>
+  <p class="p-show p-margin"><strong>Book description:&nbsp;</strong><%= @book.description %></p>
+
+  <hr>
+  
+  <div class="form">
+    <p class="p-show p-title">User informations:&nbsp;</p>
+    <div class="row form-group">
+      <div class="col-6 row ">
+        <div class="col-11 p-margin">
+          <%= form.collection_select :user_id, User.all, :id,:name, 
+          {:prompt => '---- Select a User ----'}, {class:"form-control"} %>
+        </div>
+      </div>  
+      <div class="col-6"></div>
+    </div>
+    <hr>
+    
+    <%= form.hidden_field :book_id, :value => @book.id  %>
+    <%= form.hidden_field :date, :value => Date.today  %>
+
+    <div class="row form-group">
+      <div class="col-6">
+        <div class="actions">
+          <%= form.submit 'Borrow book', class:'btn btn-light' %>
+        </div>
+      </div>  
+      <div class="col-6"></div>
+    </div>
+  </div>
+<% end %>

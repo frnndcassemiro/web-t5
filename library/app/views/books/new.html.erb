@@ -1,0 +1,10 @@
+<hr/> <div class="page-title">New Book</div> <hr/>
+<div class="back back-page-title">
+    <button type="button" class="btn btn-light btn-link">
+        <%= link_to 'Back', books_path %>
+    </button>
+</div>
+
+<%= render 'form', book: @book, authors: @authors %>
+
+    

@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<div class="back">
+  <button type="button" class="btn btn-light btn-link">
+    <%= link_to 'Back', loans_path %>
+  </button>
+</div>
+  
+<br><br><br>
+  
+<p class="p-show p-margin" ><strong>Book informations:&nbsp;</strong><%= @loan.book_id %></p>
+<p class="p-show p-margin" ><strong>User informations:&nbsp;</strong><%= @loan.user_id %></p>
+<p class="p-show p-margin" ><strong>Date:&nbsp;</strong><%= @loan.date %></p>
