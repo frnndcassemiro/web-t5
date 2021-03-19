@@ -10,5 +10,8 @@
   
 <p class="p-show p-margin" ><strong>User name:&nbsp;</strong><%= @user.name %></p>
 <p class="p-show p-margin" ><strong>User e-mail:&nbsp;</strong><%= @user.email %></p>
-
-<%# show user address %>
+<p class="p-show p-margin" ><strong>User address:&nbsp;</strong>
+  <% address = Zipcode.find_by_id(@user.zipcode_id).info %> <%= address %> - 
+  <% city = Zipcode.find_by_id(@user.zipcode_id).city %> <%= city %> - 
+  <% state = Zipcode.find_by_id(@user.zipcode_id).state %> <%= state %>  
+</p>

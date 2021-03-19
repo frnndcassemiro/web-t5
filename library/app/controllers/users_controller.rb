@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
+    @zipcodes =  Zipcode.all
   end
 
   # GET /users/1 or /users/1.json
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @zipcode = Zipcode.new
   end
 
   # GET /users/1/edit
@@ -21,8 +23,13 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    @user = User.new(user_params)
-
+    @zc = Zipcode.new(user_params.except(:name, :email, :zipcode_id))
+    @zc.save
+    @user = User.new
+    @user.name = user_params[:name]
+    @user.email = user_params[:email]
+    @user.zipcode_id = @zc.id
+    
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: "User was successfully created." }
@@ -36,6 +43,8 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
+
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: "User was successfully updated." }
@@ -49,7 +58,9 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
-    @user.destroy
+    @zc = Zipcode.find_by_id(@user.zipcode_id)
+    # @user.destroy
+    @zc.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
@@ -64,6 +75,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :email, :zipcode_id)
+      params.require(:user).permit(:name, :email, :zipcode_id, :info, :city, :state)
     end
 end

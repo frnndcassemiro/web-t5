@@ -28,6 +28,7 @@
       <div class="col-6"></div>
     </div>
 
+    <%= form.hidden_field :zipcode_id, :value => ''  %>
     <%# <div class="row form-group">
       <div class="col-6 row ">
         <div class="col-4"><label><%= form.label :zipcode %><%#:</label></div>
@@ -42,7 +43,7 @@
     <div class="row form-group">
       <div class="col-6 row ">
         <div class="col-4"><label>Address <%= form.label :info  %>:</label></div>
-        <div class="col-8"><input class="form-control" type="text" <%= form.text_field :info , { autocomplete: "off",placeholder: "Avenida Brasília, 1960" }%></div>
+        <div class="col-8"><input class="form-control" type="text" <%= form.text_field :info , { autocomplete: "off",placeholder: "Ex: Avenida Brasília, 1960" }%></div>
       </div>  
       <div class="col-6"></div>
     </div>
@@ -50,7 +51,7 @@
     <div class="row form-group">
       <div class="col-6 row ">
         <div class="col-4"><label><%= form.label :city %>:</label></div>
-        <div class="col-8"><input class="form-control" type="text" <%= form.text_field :city , { autocomplete: "off",placeholder: "Curitiba" }%></div>
+        <div class="col-8"><input class="form-control" type="text" <%= form.text_field :city , { autocomplete: "off",placeholder: "Ex: Curitiba" }%></div>
       </div>  
       <div class="col-6"></div>
     </div>
@@ -58,7 +59,7 @@
     <div class="row form-group">
       <div class="col-6 row ">
         <div class="col-4"><label><%= form.label :state %>:</label></div>
-        <div class="col-8"><input class="form-control" type="text" <%= form.text_field :state , { autocomplete: "off",placeholder: "Paraná" }%></div>
+        <div class="col-8"><input class="form-control" type="text" <%= form.text_field :state , { autocomplete: "off",placeholder: "Ex: Paraná" }%></div>
       </div>  
       <div class="col-6"></div>
     </div>
